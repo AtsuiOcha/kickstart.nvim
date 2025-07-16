@@ -27,7 +27,7 @@ What is Kickstart?
   Kickstart.nvim is a starting point for your own configuration.
     The goal is that you can read every line of code, top-to-bottom, understand
     what your configuration is doing, and modify it to suit your needs.
-
+                                                                               
     Once you've done that, you can start exploring, configuring and tinkering to
     make Neovim your own! That might mean leaving Kickstart just the way it is for a while
     or immediately breaking it into modular pieces. It's up to you!
@@ -152,6 +152,13 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- some helpful options
+vim.opt.colorcolumn = '80' -- visual indicator of 8- column
+vim.opt.tabstop = 2 -- A tab looks like 2 spaces
+vim.opt.shiftwidth = 2 -- Indentation level (for << and >>)
+vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.smartindent = true -- Smart autoindenting
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 
@@ -168,6 +175,16 @@ vim.o.confirm = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+--  use jj to exit insert mode
+vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode with jj' })
+-- remove this cursed mapping
+vim.keymap.set('n', '<C-x', '<cmd>echo "DON\'T YOU DARE!!!"<CR>')
+
+vim.opt.colorcolumn = '80' -- visual indicator of 80 column
+vim.opt.tabstop = 2 -- A tab looks like 2 spaces
+vim.opt.shiftwidth = 2 -- Indentation level (for << and >>)
+vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.smartindent = true -- Smart autoindenting
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
